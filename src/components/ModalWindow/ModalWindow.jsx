@@ -30,9 +30,8 @@ const ModalWindow = ({ onClose, gallery, id }) => {
           if (Number(value.id) === Number(id)) {
             return (
               <img
+                className={s.modalImg}
                 key={value.id}
-                width={value.webformatWidth}
-                height={value.webformatHeight}
                 src={value.largeImageURL}
                 alt={value.tags}
               />
