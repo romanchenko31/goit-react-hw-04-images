@@ -14,7 +14,7 @@ const ImageGalleryItem = ({ gallery }) => {
       duration: 800,
       delay: 0,
       smooth: 'easeInOutQuart',
-      offset: -50,
+      offset: 100,
     });
   }, [gallery]);
 
