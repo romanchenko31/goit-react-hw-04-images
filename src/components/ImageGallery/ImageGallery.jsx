@@ -5,19 +5,20 @@ import { ThreeDots } from 'react-loader-spinner';
 import MoreButton from '../MoreButton/MoreButton.jsx';
 import ServiceApi from '../../serviceApi/serviceApi.js';
 const serviceGalleryApi = new ServiceApi();
+const startPage = 1;
 
 const ImageGallery = ({ searchQuery }) => {
   const [images, setImages] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState(startPage);
 
   useEffect(() => {
     const fetchFirstPageData = async () => {
       try {
-        setPage(1);
+        setPage(startPage);
         setLoading(true);
         serviceGalleryApi.queryGallery = searchQuery;
-        const resultFirstPage = await serviceGalleryApi.getGallery(1);
+        const resultFirstPage = await serviceGalleryApi.getGallery(startPage);
         setImages(resultFirstPage);
       } finally {
         setLoading(false);
